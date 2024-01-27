@@ -147,7 +147,7 @@ namespace MasterQian::WinRT {
         };
     }
 
-    Args::Args() : Args{ winrt::make<details::ArgsImpl>() } {}
+    inline Args::Args() : Args{ winrt::make<details::ArgsImpl>() } {}
 }
 ```
 
@@ -311,7 +311,7 @@ Here we define the implementation type ***ArgsImpl***, which is internally a ***
 
 ```c++
 namespace MasterQian::WinRT {
-     Args::Args() : Args{ winrt::make<details::ArgsImpl>() } {}
+    inline Args::Args() : Args{ winrt::make<details::ArgsImpl>() } {}
 }
 ```
 
