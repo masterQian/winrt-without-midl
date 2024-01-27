@@ -82,7 +82,7 @@ namespace MasterQian::WinRT {
         template<typename U>
         static winrt::Windows::Foundation::IInspectable box_arg(U&& u) {
             if constexpr (details::arg_pointer<U>) {
-                return winrt::box_value(reinterpret_cast<mqui64>(u));
+                return winrt::box_value(reinterpret_cast<uint64_t>(u));
             }
             else {
                 return winrt::box_value(std::forward<U>(u));
@@ -95,7 +95,7 @@ namespace MasterQian::WinRT {
                 return _placeholder;
             }
             else if constexpr (details::arg_pointer<U>) {
-                return reinterpret_cast<U>(winrt::unbox_value<mqui64>(value));
+                return reinterpret_cast<U>(winrt::unbox_value<uint64_t>(value));
             }
             else {
                 return winrt::unbox_value<U>(value);
